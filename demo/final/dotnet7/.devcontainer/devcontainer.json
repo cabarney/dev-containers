@@ -1,0 +1,40 @@
+{
+  "name": "dotnet 7 Demo Preview 123",
+  "dockerComposeFile": "docker-compose.yml",
+  "service": "app",
+  "workspaceFolder": "/workspace",
+  // "build": {
+  //   "dockerfile": "Dockerfile"
+  // },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "zsh",
+        "workbench.colorCustomizations": {
+          "activityBar.activeBackground": "#c88a20",
+          "activityBar.background": "#c88a20",
+          "activityBar.foreground": "#15202b",
+          "activityBar.inactiveForeground": "#15202b99",
+          "activityBarBadge.background": "#126e4c",
+          "activityBarBadge.foreground": "#e7e7e7",
+          "commandCenter.border": "#e7e7e799",
+          "sash.hoverBorder": "#c88a20",
+          "statusBar.background": "#9c6c19",
+          "statusBar.foreground": "#e7e7e7",
+          "statusBarItem.hoverBackground": "#c88a20",
+          "statusBarItem.remoteBackground": "#9c6c19",
+          "statusBarItem.remoteForeground": "#e7e7e7",
+          "titleBar.activeBackground": "#9c6c19",
+          "titleBar.activeForeground": "#e7e7e7",
+          "titleBar.inactiveBackground": "#9c6c1999",
+          "titleBar.inactiveForeground": "#e7e7e799"
+        }
+      }
+    }
+  },
+  "forwardPorts": ["rabbitmq:15672", "db:5432"],
+  "postStartCommand": "dotnet restore"
+}
