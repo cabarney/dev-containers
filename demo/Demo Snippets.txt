@@ -18,12 +18,20 @@ FROM mcr.microsoft.com/dotnet/sdk:7.0
 
 
 {
-  "name": "dotnet 7 Demo - Indy",
+  "name": "dotnet 7 Demo",
   "build": {
     "dockerfile": "Dockerfile"
   }
 }
 
+===========================================
+
+			"settings": {
+				"workbench.colorTheme": "Default Light+",
+				"editor.fontSize": 24
+			},
+
+===========================================
 
 {
   "workbench.colorCustomizations": {
@@ -66,3 +74,5 @@ RUN apt-get update \
 
 
   "forwardPorts": ["rabbitmq:15672", "db:5432"],
+
+  http://localhost:15672/
