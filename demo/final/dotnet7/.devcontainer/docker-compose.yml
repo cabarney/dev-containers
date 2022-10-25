@@ -9,6 +9,8 @@ services:
          - ..:/workspace:cached
       command: sleep infinity
       network_mode: service:db
+      env_file:
+         - ../.env
       depends_on:
          - db
          - rabbitmq

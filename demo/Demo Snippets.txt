@@ -76,3 +76,14 @@ RUN apt-get update \
   "forwardPorts": ["rabbitmq:15672", "db:5432"],
 
   http://localhost:15672/
+
+===========================================
+
+devcontainer build --workspace-folder ./ --image-name dotnet-api-container
+
+docker tag dotnet-api-container localhost:9000/dotnet-api-container:XXXX
+docker push localhost:9000/dotnet-api-container:XXXX
+
+===========================================
+
+"image": "dotnet-api-container:XXXX"

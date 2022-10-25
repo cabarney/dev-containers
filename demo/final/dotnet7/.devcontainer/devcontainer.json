@@ -6,6 +6,10 @@
   // "build": {
   //   "dockerfile": "Dockerfile"
   // },
+  // "runArgs": [
+  // 	"--env-file",
+  // 	".env"
+  // ],
   "customizations": {
     "vscode": {
       "extensions": [
