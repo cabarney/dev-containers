@@ -1,0 +1,6 @@
+{
+    "emmet.includeLanguages": {
+        "ASP.NET Razor": "html",
+        "razor": "html"
+    }
+}

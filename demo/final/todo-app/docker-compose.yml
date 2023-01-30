@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  api:
+    image: mcr.microsoft.com/devcontainers/python:0-3.11
+    volumes:
+      - .:/workspaces:cached
+    command: sleep infinity
+    network_mode: service:db
+
+  app:
+    image: mcr.microsoft.com/devcontainers/dotnet:0-7.0
+    volumes:
+      - .:/workspaces:cached
+    command: sleep infinity
+    network_mode: service:api
+
+  db:
+    image: postgres:latest
+    restart: unless-stopped
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_DB: todos
+      POSTGRES_PASSWORD: postgres
+
+  admin:
+    image: dpage/pgadmin4
+    ports:
+      - "8082:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "user@domain.com"
+      PGADMIN_DEFAULT_PASSWORD: "password"
+    volumes:
+      - ./db/servers.json:/pgadmin4/servers.json
+
+  flyway:
+    image: flyway/flyway
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    command: migrate
+    volumes:
+      - ./db/flyway.conf:/flyway/flyway.conf
+      - ./db/sql:/flyway/sql
+    depends_on:
+      - db
+
+volumes:
+  postgres-data:

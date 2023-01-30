@@ -1,0 +1,35 @@
+GET http://localhost:5000/hello HTTP/1.1
+
+###
+POST http://localhost:5000/todos HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Hello!",
+    "dueDate": "2023-02-15",
+    "completed": false
+}
+
+###
+
+GET http://localhost:5000/todos HTTP/1.1
+
+###
+
+GET http://localhost:5000/todos/3 HTTP/1.1
+
+###
+
+PUT http://localhost:5000/todos/3 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "Hello!",
+    "dueDate": "2023-02-15",
+    "completed": true
+}
+
+
+###
+
+DELETE http://localhost:5000/todos/6 HTTP/1.1
